@@ -42,8 +42,8 @@ public class RegistrazioneServlet extends HttpServlet {
 				response.sendRedirect("Login");
 				
 		}else {
-			request.setAttribute("errore", "dati inseriti non validi");
-			request.getRequestDispatcher("WEB-INF/jsp/Registrazione.jsp").forward(request, response);
+			request.setAttribute("esito", "I dati inseriti non sono validi");
+			request.getRequestDispatcher("WEB-INF/jsp/Login2.jsp").forward(request, response);
 		}
 		
 	}

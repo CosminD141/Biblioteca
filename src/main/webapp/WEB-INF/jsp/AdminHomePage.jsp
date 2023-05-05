@@ -57,7 +57,7 @@ if(utenti!=null){
 			<th align="center"><b>Id</b></th>
 			<th align="center"><b>Nome</b></th>
 			<th align="center"><b>Cognome</b></th>
-			<th align="center"><b>Username</b></th>
+			<th align="center"><b>Email</b></th>
 			<th align="center"><b>Ruolo</b></th>
 			<th align="center"><b>Modifica</b></th> 
 		</tr>

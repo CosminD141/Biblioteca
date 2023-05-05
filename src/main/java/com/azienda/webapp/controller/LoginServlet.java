@@ -19,10 +19,9 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/Login")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("WEB-INF/jsp/Login.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/jsp/Login2.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -47,7 +46,6 @@ public class LoginServlet extends HttpServlet {
 			}else {
 				//PAGINA STAFF E USER CON LISTA LIBRI SENZA POTER MODIFICARE NE AGGIUNGERE
 				//PASSO LISTA LIBRI
-				// utente.setPassword(null) protteggo la password
 				request.getSession().setAttribute("utente", utente);
 				libri = LibroDaoImplJPA.getInstance().findAll();
 			}
@@ -57,8 +55,8 @@ public class LoginServlet extends HttpServlet {
 			request.setAttribute("listaLibri", libri);
 			request.getRequestDispatcher("WEB-INF/jsp/PersonalHomePage.jsp").forward(request, response);
 		}else {
-			request.setAttribute("esito", "dati non validi");
-			request.getRequestDispatcher("WEB-INF/jsp/Login.jsp").forward(request, response);
+			request.setAttribute("esito", "I dati inseriti non sono validi");
+			request.getRequestDispatcher("WEB-INF/jsp/Login2.jsp").forward(request, response);
 		}					
 	}
 }

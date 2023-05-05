@@ -24,6 +24,7 @@ public class LibroDaoImplJPA implements LibroDao{
 		List<Libro> libri = manager.createNamedQuery("Libro.findAll",Libro.class).getResultList();
 		for(Libro libro : libri) {
 			int id = libro.getId();
+			@SuppressWarnings("unchecked")
 			List<Genere> generi = (List<Genere>)manager.createQuery("select g from Libro l join l.generi g where l.id=:id").setParameter("id", id).getResultList();
 			libro.setGenere(generi);		
 		} 				
@@ -61,6 +62,7 @@ public class LibroDaoImplJPA implements LibroDao{
 	@Override
 	public List<Libro> findByGenere(String genere) {
 		EntityManager manager = FactoryMysqlJPA.getEntityManager();
+		@SuppressWarnings("unchecked")
 		List<Libro> libri =(List<Libro>) manager.createQuery("select l from Libro l join l.generi g where g.nome=:genere").setParameter("genere", genere).getResultList();
 		return libri;	
 	}
@@ -68,11 +70,13 @@ public class LibroDaoImplJPA implements LibroDao{
 	public Libro findById(int id) {
 		EntityManager manager = FactoryMysqlJPA.getEntityManager();
 		Libro libro = manager.createQuery("select l from Libro l join l.generi genere where l.id=:id", Libro.class).setParameter("id", id).getSingleResult();
+		@SuppressWarnings("unchecked")
 		List<Genere> generi = (List<Genere>) manager.createQuery("select g from Libro l join l.generi g where l.id=:id").setParameter("id", id).getResultList();
 		libro.setGenere(generi);
 		return libro;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Libro> findByTitolo(String titolo){
 		EntityManager manager = FactoryMysqlJPA.getEntityManager();
 		return (List<Libro>)manager.createQuery("select l from Libro l where l.titolo like :titolo").setParameter("titolo", titolo).getResultList();
@@ -88,6 +92,7 @@ public class LibroDaoImplJPA implements LibroDao{
 	@Override
 	public List<Libro> findByUtente(int idUtente) {
 		EntityManager manager = FactoryMysqlJPA.getEntityManager();
+		@SuppressWarnings("unchecked")
 		List<Libro> libri = (List<Libro>)manager.createQuery("select l from Libro l join l.utenti u where u.id=:id").setParameter("id", idUtente).getResultList();
 		return libri;
 	}
