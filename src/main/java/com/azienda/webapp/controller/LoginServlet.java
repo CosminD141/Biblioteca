@@ -21,7 +21,7 @@ public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("WEB-INF/jsp/Login2.jsp").forward(request, response);
+		request.getRequestDispatcher("Login2.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -56,7 +56,7 @@ public class LoginServlet extends HttpServlet {
 			request.getRequestDispatcher("WEB-INF/jsp/PersonalHomePage.jsp").forward(request, response);
 		}else {
 			request.setAttribute("esito", "I dati inseriti non sono validi");
-			request.getRequestDispatcher("WEB-INF/jsp/Login2.jsp").forward(request, response);
+			request.getRequestDispatcher("Login2.jsp").forward(request, response);
 		}					
 	}
 }
