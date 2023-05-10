@@ -37,6 +37,7 @@ public class LoginServlet extends HttpServlet {
 			Utente u = utenteDao.findRuoloByUsername(username);
 			List<Libro> libri = new ArrayList<Libro>();
 			if(u.getRuolo().getDescrizione().equalsIgnoreCase(Constants.RUOLO_ADMIN)) {
+				
 				//PAGINA ADMIN CON LISTA UTENTI
 				//PASSO LISTA UTENTI
 				List<Utente> utenti = utenteDao.findAll();
@@ -44,10 +45,12 @@ public class LoginServlet extends HttpServlet {
 				request.setAttribute("utenti", utenti);
 				request.getRequestDispatcher("WEB-INF/jsp/AdminHomePage.jsp").forward(request, response); 
 			}else {
+				
 				//PAGINA STAFF E USER CON LISTA LIBRI SENZA POTER MODIFICARE NE AGGIUNGERE
 				//PASSO LISTA LIBRI
 				request.getSession().setAttribute("utente", utente);
 				libri = LibroDaoImplJPA.getInstance().findAll();
+				
 			}
 			
 //			request.setAttribute("idPrefe", 0);

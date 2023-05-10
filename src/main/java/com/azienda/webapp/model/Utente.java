@@ -2,7 +2,6 @@ package com.azienda.webapp.model;
 
 import java.util.List;
 import java.util.Objects;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -47,24 +46,6 @@ public class Utente {
 	public Utente() {
 	}
 
-	public Utente(String nome, String cognome, String username, String password) {
-		super();
-		this.nome = nome;
-		this.cognome = cognome;
-		this.username = username;
-		this.password = password;
-
-	}
-
-	public Utente(int id, String nome, String cognome, String username, String password) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.cognome = cognome;
-		this.username = username;
-		this.password = password;
-	}
-
 	public Utente(String nome, String cognome, String username, String password, Ruolo ruolo) {
 		super();
 		this.nome = nome;
@@ -73,49 +54,7 @@ public class Utente {
 		this.password = password;
 		this.ruolo = ruolo;
 	}
-
-	public Utente(int id, String nome, String cognome, String username, String password, Ruolo ruolo) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.cognome = cognome;
-		this.username = username;
-		this.password = password;
-		this.ruolo = ruolo;
-	}
 	
-	
-
-	public Utente(int id, String nome, String cognome, String username, String password, Ruolo ruolo,
-			List<Prenotazione> prenotazioni, List<Libro> libri) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.cognome = cognome;
-		this.username = username;
-		this.password = password;
-		this.ruolo = ruolo;
-		this.prenotazioni = prenotazioni;
-		this.libri = libri;
-	}
-
-	public Utente(int id, String nome, String cognome, String username, String password, Ruolo ruolo,
-			List<Prenotazione> prenotazioni) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.cognome = cognome;
-		this.username = username;
-		this.password = password;
-		this.ruolo = ruolo;
-		this.prenotazioni = prenotazioni;
-	}
-
-	public Utente(Ruolo ruolo) {
-		super();
-		this.ruolo = ruolo;
-	}
-
 	public int getId() {
 		return id;
 	}
@@ -204,8 +143,6 @@ public class Utente {
 				&& Objects.equals(nome, other.nome) && Objects.equals(password, other.password)
 				&& Objects.equals(prenotazioni, other.prenotazioni) && ruolo.getDescrizione().equals(other.getRuolo().getDescrizione())
 				&& Objects.equals(username, other.username);
-	}
-	
-	
+	}	
 	
 }
